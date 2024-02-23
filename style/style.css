@@ -1,0 +1,47 @@
+.circle{
+    position: absolute;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    background-color:rgb(255, 255, 255);
+    height:30px;
+    width:30px;
+    border: 1.5px solid black;
+    border-radius:50px;
+}
+
+#menu{
+    background: linear-gradient(to bottom,black,#333);
+    z-index: 10;
+}
+
+#controls{
+    background: linear-gradient(to bottom,#333,#555);
+    z-index: 10;
+}
+
+#frame{
+    position:absolute;
+    top:200px;
+    height:80%;
+    width:100%;
+    z-index:5;
+}
+
+#canvas{
+    position:absolute;
+    top:200px;
+    z-index:0;
+    border:none;
+}
+
+#nodes{
+    /*appearance: none;*/
+    background-color: #8f8f8f;
+    width:100px
+}
+
+#nodes-disp{
+    width:20px;
+    vertical-align: top;
+}
