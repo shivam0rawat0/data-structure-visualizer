@@ -32,7 +32,7 @@ setInterval(() => {
 		   processFlag = false;
 	   }
 	}
-},20);
+},40);
 
 function startProcessSlow(fx,data){
     callStack2.push([fx,data]);

@@ -15,16 +15,20 @@ function init(){
     ctx.lineWidth = 1;
 }
 
-function clearContainer(){
+function clearFrame(){
     while(frame.firstChild)
         frame.removeChild(frame.firstChild);
 }
 
-function clearFrame(){
-    resetProcess();
-    if(option.value!=2) clearContainer();
+function clearCanvas(){
     ctx.clearRect(0, 0, 1920, 1080);
     ctx.beginPath();
+}
+
+function clearApp(){
+    resetProcess();
+    clearFrame();
+    clearCanvas();
 }
 
 function drawLine(x1,y1,x2,y2,lcolor,lwidth){
@@ -36,6 +40,7 @@ function drawLine(x1,y1,x2,y2,lcolor,lwidth){
 }
 
 function load(){
+    clearApp();
     if(menu != null) {
         var inputs = document.getElementsByClassName("menu"+menu);
         for(i=0;i<inputs.length;++i)
@@ -48,7 +53,5 @@ function load(){
     if(option.value == 2){
         graph = new Graph();
         state = 0;
-    } else {
-        clearFrame();
     }
 }

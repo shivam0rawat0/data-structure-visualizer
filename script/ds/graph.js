@@ -25,6 +25,7 @@ function toggleMapping(btn){
 
 function toggleConnect(btn){
     if(isConnectOn){
+        clearCanvas();
         btn.innerHTML = "Add edge";
         isConnectOn = false;
     } else {
@@ -181,7 +182,8 @@ function findPath(btn){
             ++state;
             break;
         case 4:
-            clearFrame();
+            resetProcess();
+            clearCanvas();
             btn.innerHTML = "Find path";
             for(var x in graph.nodes)
                 pointRender([x,"transparent"]);
