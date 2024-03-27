@@ -6,29 +6,6 @@
 	display:block;
 }
 
-.circle{
-    position: absolute;
-    text-align: center;
-    font-size: 12px;
-    font-weight: bold;
-    background-color:rgb(255, 255, 255);
-    height:30px;
-    width:30px;
-    border: 1.5px solid black;
-    border-radius:50px;
-}
-
-.point{
-    position: absolute;
-    text-align: center;
-    font-size: 12px;
-    font-weight: bold;
-    height:8px;
-    width:8px;
-    border: 1.5px solid blue;
-    z-index:20;
-}
-
 #menu{
     background: linear-gradient(to bottom,black,#333);
     z-index: 10;
@@ -51,14 +28,4 @@
     top:90px;
     z-index:0;
     border:none;
-}
-
-#nodes{
-    background-color: #8f8f8f;
-    width:100px
-}
-
-#nodes-disp{
-    width:20px;
-    vertical-align: top;
 }
