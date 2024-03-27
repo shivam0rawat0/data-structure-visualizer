@@ -1,0 +1,21 @@
+.circle{
+    position: absolute;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    background-color:rgb(255, 255, 255);
+    height:30px;
+    width:30px;
+    border: 1.5px solid black;
+    border-radius:50px;
+}
+
+#nodes{
+    background-color: #8f8f8f;
+    width:100px
+}
+
+#nodes-disp{
+    width:20px;
+    vertical-align: top;
+}

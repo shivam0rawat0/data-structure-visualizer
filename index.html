@@ -14,6 +14,8 @@
     <script type="text/javascript" src="script/ds/data.js"></script>
     <script type="text/javascript" src="script/app.js"></script>
     <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="style/bst.css">
+    <link rel="stylesheet" type="text/css" href="style/graph.css">
 </head>
   <body onload="init()">
     <div id="menu" class="px-4 py-1">
@@ -40,7 +42,7 @@
       </select>
       <button onclick="toggleMapping(this)" class="btn btn-secondary menu2 hidden" >Add node</button>
       <button onclick="toggleConnect(this)" class="btn btn-secondary menu2 hidden" >Add edge</button>
-      <button onclick="findPath(this)" class="btn btn-secondary menu2 hidden" >Find path</button>
+      <button id="find-btn" onclick="findPath(this)" class="btn btn-secondary menu2 hidden" >Find path</button>
     </div>
     <div id="frame" height="1080" onclick="captureMouse(event)"></div>
     <canvas id="canvas" height="1080"></canvas>

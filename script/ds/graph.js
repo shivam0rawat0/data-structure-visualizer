@@ -1,10 +1,11 @@
 var graph = null;
 var prev = null;
+
 var isMapOn = false;
 var isConnectOn = false;
-//var isSearchOn = false;
 var isPathOn = false;
 var isPoint = false;
+
 var point_count = 0;
 var imgMap = {
     "0":"img/gta-vice-city.png",
@@ -47,8 +48,10 @@ function loadMap(){
             var cx = x.split(",");
             frame.appendChild(_x("div",{
                 "id":graph.nodes[x],
-                "class":"point",
+                "class":"point pt-cr-sm",
                 "onclick":"setPoint(this)",
+                "onmouseover":"setSize(this,true)", 
+                "onmouseout":"setSize(this,false)",
                 "style":"top:"+Number(cx[0])+"px;left:"+Number(cx[1])+"px;"
             }))
         }
@@ -61,9 +64,12 @@ function captureMouse(e){
             ++point_count;
             frame.appendChild(_x("div",{
                 "id":"p"+point_count,
-                "class":"point",
+                "class":"point pt-cr-sm",
                 "onclick":"setPoint(this)",
-                "style":"top:"+(e.clientY - 95 + Math.round(pageYOffset))+"px;left:"+(e.clientX - 5)+"px;"
+                "onmouseover":"setSize(this,true)", 
+                "onmouseout":"setSize(this,false)",
+                "style":"top:"+(e.clientY - 95 + Math.round(pageYOffset))+"px;left:"
+                +(e.clientX - 5)+"px;"
             }));
             graph.addNode(
                 [e.clientY - 95 + Math.round(pageYOffset),e.clientX - 5],
@@ -71,6 +77,17 @@ function captureMouse(e){
             );
         } else {
             isPoint = false;
+        }
+    }
+}
+
+function setSize(point, expand){
+    if(isPathOn){
+        if(expand) {
+            point.setAttribute("class","point pt-cr-md");
+        }
+        else {
+            point.setAttribute("class","point pt-cr-sm");
         }
     }
 }
@@ -95,12 +112,12 @@ function setPoint(point){
         if(source == null){
             source = point;
             source.style.backgroundColor = "green";
+            findPath(document.getElementById("find-btn"));
         } else {
             destination = point;
             destination.style.backgroundColor = "red";
-            //prev = "null";
             isPathOn = false;
-            //findPath();
+            findPath(document.getElementById("find-btn"));
         }
     }
 }
@@ -159,6 +176,7 @@ function lineRender(pts){
 function findPath(btn){
     switch(state){
         case 0:
+            btn.onclick = "";
             btn.innerHTML = "Select A";
             isPathOn = true;
             ++state;
@@ -168,20 +186,19 @@ function findPath(btn){
             ++state;
             break;
         case 2:
-            btn.innerHTML = "find";
-            ++state;
-            break;
-        case 3:
             var s = source;
             var d = destination;
             graph.dfs(
                 [s.style.top.replace("px",""),s.style.left.replace("px","")],
                 [d.style.top.replace("px",""),d.style.left.replace("px","")]
                 );
-            btn.innerHTML = "Stop find";
+            btn.innerHTML = "Reset";
+            btn.onclick = () =>{findPath(document.getElementById("find-btn"));};
             ++state;
             break;
-        case 4:
+        case 3:
+            source.setAttribute("class","point pt-cr-sm");
+            destination.setAttribute("class","point pt-cr-sm");
             resetProcess();
             clearCanvas();
             btn.innerHTML = "Find path";
