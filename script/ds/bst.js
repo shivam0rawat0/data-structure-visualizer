@@ -1,5 +1,5 @@
 var render_map = {
-    "top_offset": 0,
+    "top_offset": 20,
     "top_diff": 40,
     "t_mult_diff": 0.3,
     "t_mult": 1,
@@ -97,7 +97,7 @@ class BST{
 }
 
 function renderBST(){
-    clearFrame();
+    clearApp();
             var top_offset = render_map["top_offset"];
             var left_offset = render_map["left_offset"];
             var top_diff = render_map["top_diff"];
