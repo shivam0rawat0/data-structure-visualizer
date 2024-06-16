@@ -5,6 +5,12 @@ var propType = {
 	'innerHTML' :1,
 	'type':1
 };
+
+// var fastStack = 40;
+// var slowStack = 100;
+var fastStack = 5;
+var slowStack = 5;
+
 var callStack = [];
 var callStack2 = [];
 var processFlag = false;
@@ -32,7 +38,7 @@ setInterval(() => {
 		   processFlag = false;
 	   }
 	}
-},40);
+},fastStack);
 
 function startProcessSlow(fx,data){
     callStack2.push([fx,data]);
@@ -47,7 +53,7 @@ setInterval(() => {
 		   processFlag2 = false;
 	   }
 	}
-},100);
+},slowStack);
 
 function resetProcess(){
 	processFlag = false;

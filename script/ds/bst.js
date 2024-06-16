@@ -171,7 +171,7 @@ var BSTRender = (map) => {
     drawLine(map[3] + map[4],
     map[5] + map[4],
     map[2] + map[4],
-    map[6] + map[4],"balck",1);
+    map[6] + map[4],"black",1);
     /*startProcessSlow([(x) => {
         circle.style.backgroundColor = "#7aeba5";
     },[circle]]);*/

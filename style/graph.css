@@ -16,8 +16,8 @@
 }
 
 .pt-md{
-    height:10px;
-    width:10px;
+    height:15px;
+    width:15px;
     border: 1.2px solid blue;
 }
 
@@ -29,8 +29,8 @@
 }
 
 .pt-cr-md{
-    height:10px;
-    width:10px;
+    height:15px;
+    width:15px;
     border: 1.2px solid blue;
     border-radius: 50px;
 }
